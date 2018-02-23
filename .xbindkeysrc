@@ -1,0 +1,11 @@
+"dmenu_run"
+	m:0x8 + c:40
+	Alt + d
+
+"light -U 10"
+	m:0x0 + c:95
+	F11
+
+"light -A 10"
+	m:0x0 + c:96
+	F12

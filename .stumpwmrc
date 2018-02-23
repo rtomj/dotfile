@@ -1,0 +1,7 @@
+(set-prefix-key (kbd "C-z"))
+
+(define-key *root-map* (kbd "t") "exec xterm")
+(define-key *root-map* (kbd "b") "exec blender")
+(define-key *root-map* (kbd "f") "exec firefox")
+
+(define-key *root-map* (kbd "a") "exec xterm -e alsamixer")
