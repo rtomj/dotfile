@@ -1,7 +1,7 @@
 export PS1="\\$ "
 
 # plan9port
-PLAN9=$HOME/plan9port-master export PLAN9
+PLAN9=/usr/lib/plan9 export PLAN9
 PATH=$PATH:$PLAN9/bin export PATH
 
 # ccache
