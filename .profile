@@ -1,7 +1,7 @@
 # Misc Plan9Port settings. 
 
 # Browser used by web(1) and thus plumber.
-BROWSER=vivaldi-stable
+BROWSER=firefox
 
 # Plumb files instead of starting new editor.
 EDITOR=E
@@ -26,7 +26,7 @@ PAGER=nobs
 font=$PLAN9/font/plan9fonts/terminus/ter-u14n.font
 #font=$PLAN9/font/plan9fonts/tamzen/tamzen14.font
 
-PLAN9=/usr/lib/plan9 export PLAN9
+PLAN9=/opt/plan9 export PLAN9
 PATH=$PATH:$PLAN9/bin export PATH
 
 SHELL=rc

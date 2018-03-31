@@ -1,4 +1,4 @@
-#!/usr/lib/plan9/bin/rc
+#!/opt/plan9/bin/rc
 
 plumber
 xbindkeys
