@@ -1,17 +1,8 @@
 export PS1="\\$ "
 
-# plan9port
-PLAN9=/usr/lib/plan9 export PLAN9
+#plan9port
+PLAN9=/opt/plan9 export PLAN9
 PATH=$PATH:$PLAN9/bin export PATH
-
-# ccache
-export PATH="/usr/lib/ccache/:$PATH"
-export CCACHE_DIR="/var/ccache/ccache"
-
-export LD_LIBRARY_PATH="/usr/lib"
-
-# acme font
-alias acme="acme -f /mnt/font/'DejaVu Sans Mono'/10a/font"
 
 extract() {
     if [ -z ${1} ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then

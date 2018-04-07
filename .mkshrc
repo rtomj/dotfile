@@ -2,16 +2,6 @@
 PS1='${USER:=$(id -un)}'"@${HOSTNAME:=$(hostname)}:\$PWD $(
 	if (( USER_ID )); then print \$; else print \#; fi) "
 
-
-export PATH="/usr/lib/ccache/:$PATH"
-export CCACHE_DIR="$HOME/.ccache/ccache"
-
-#Locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-
-alias acme=" acme -f $PLAN9/font/plan9fonts/terminus/ter-u14n.font"
 alias cd=_cd
 
 #Turns off the line editing so that editing the command line in 9term works (see 9term(1))
@@ -31,11 +21,9 @@ _cd () {
     esac
 }
 
-# plan9port
-PLAN9=/usr/lib/plan9 export PLAN9
+#plan9port
+PLAN9=/opt/plan9 export PLAN9
 PATH=$PATH:$PLAN9/bin export PATH
-
-#export LD_LIBRARY_PATH="/usr/lib"
 
 extract() {
     if [ -z ${1} ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
