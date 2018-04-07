@@ -1,4 +1,4 @@
-"dmenu_run"
+"dmenu_run -b -nb '#ffffea' -nf '#000000' -sf '#ffffea' -sb '#99994c' -fn 'Terminus:pixelsize=14'"
 	m:0x8 + c:40
 	Alt + d
 
