@@ -40,10 +40,10 @@ export \
     BROWSER\
     EDITOR\
     FCEDIT\
-	H\
+    H\
     PAGER\
     PLAN9\
-	PATH\
+    PATH\
     font\
     home\
     prompt\
