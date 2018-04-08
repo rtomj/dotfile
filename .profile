@@ -33,7 +33,7 @@ SHELL=rc
 
 # Equivalent variables for rc(1).
 home=$HOME
-prompt="$H=; "
+prompt="$H% "
 user=$USER
         
 export \
