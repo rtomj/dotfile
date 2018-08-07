@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# kill any running processes
+killall NetworkManager 
+killall wpa_supplicant 
+
+# initialize wlan0 and wpa_supplicant
+wpa_supplicant -B -i wlan0 -Dwext -c /etc/wpa_supplicant.conf &
+
+# Set up interface
+dhclient wlan0
