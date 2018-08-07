@@ -1,0 +1,4 @@
+#Use DS4 with antimicro
+KERNEL=="event[0-9]*", ENV{ID_BUS}=="?*", ENV{ID_INPUT_JOYSTICK}=="?*", GROUP="games", MODE="0660"
+KERNEL=="js[0-9]*", ENV{ID_BUS}=="?*", ENV{ID_INPUT_JOYSTICK}=="?*", GROUP="games", MODE="0664"
+SUBSYSTEMS=="input", ATTRS{name}=="Sony Computer Entertainment Wireless Controller", GROUP="games", MODE:="0660"
