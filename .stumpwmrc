@@ -1,7 +1,87 @@
+;; -*-Lisp-*-
+
+;;;; To reload, evaluate "loadrc"
+
+(in-package :stumpwm)
+(ql:quickload :swank)
+
+(run-shell-command "xsetroot -cursor_name left_ptr")
+
+;;;; Prefix key
 (set-prefix-key (kbd "C-z"))
 
-(define-key *root-map* (kbd "t") "exec xterm")
+;;;; Sloppy focus
+(setf *mouse-focus-policy* :sloppy) 
+
+;;;; emacs style splitting
+(define-key *root-map* (kbd "0") "remove")
+(define-key *root-map* (kbd "1") "only")
+(define-key *root-map* (kbd "2") "vsplit")
+(define-key *root-map* (kbd "3") "hsplit")
+
+(define-key *root-map* (kbd "C-B") "prev-in-frame")
+(define-key *root-map* (kbd "C-F") "next-in-frame")
+(define-key *root-map* (kbd "S-Left") "move-window left")
+(define-key *root-map* (kbd "S-Right") "move-window right")
+(define-key *root-map* (kbd "S-Up") "move-window up")
+(define-key *root-map* (kbd "S-Down") "move-window down")
+
+;;;; Volume Keys
+(define-key *top-map* (kbd "XF86AudioLowerVolume") "exec pactl set-sink-volume 0 -5%")
+(define-key *top-map* (kbd "XF86AudioRaiseVolume") "exec pactl set-sink-volume 0 +5%")
+(define-key *top-map* (kbd "XF86AudioMute") "exec pactl set-sink-mute 0 toggle")
+
+;;;; Brightness
+(define-key *top-map* (kbd "XF86MonBrightnessDown") "exec light -U 10")
+(define-key *top-map* (kbd "XF86MonBrightnessUp") "exec light -A +10")
+;;;;(define-key *root-map* (kbd "XF86MonBrightnessDown") "exec redshift")
+
+;;;; root-map -> uses prefix key
+;;;; top-map -> doesn't use prefix key
+(define-key *root-map* (kbd "c") "exec urxvt")
 (define-key *root-map* (kbd "b") "exec blender")
 (define-key *root-map* (kbd "f") "exec firefox")
+(define-key *root-map* (kbd "l") "exec slock")
+(define-key *root-map* (kbd "d") "exec dr")
+(define-key *root-map* (kbd "t") "exec xfce4-terminal")
 
-(define-key *root-map* (kbd "a") "exec xterm -e alsamixer")
+;;;; Commands
+(defcommand screenshot() ()
+	    (run-shell-command "xfce4-screenshooter"))
+
+(defcommand firefox () ()
+	    (run-or-raise "firefox" '(:class "Firefox")))
+
+(defcommand blender () ()
+	    (run-or-raise "blender" '(:class "blender")))
+
+(defcommand battery () ()
+   (message 
+    (run-shell-command "bat" t)))
+
+;;;; Colors 
+(set-fg-color "grey95")
+(set-bg-color "grey15")
+(set-win-bg-color "black")
+(set-border-color "grey10")
+(set-focus-color "grey72")
+(set-unfocus-color "grey30")
+(setf *maxsize-border-width* 3)
+(setf *normal-border-width* 3)
+(setf *window-border-style* :tight)
+(setf *mode-line-border-color* "grey15")
+(set-msg-border-width 1)
+(set-frame-outline-width 1)
+(set-normal-gravity :center)
+
+;;;; Swank
+;; Emacs -> M-x "slime-connect" -> port 4004
+;; (require :stumpwm)
+
+(require :swank)
+(swank-loader:init)
+(swank:create-server :port 4004
+                     :style swank:*communication-style*
+                     :dont-close t)
+
+
