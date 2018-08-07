@@ -1,0 +1,8 @@
+#!/bin/bash
+
+mkdir -p "${PWD##*/}_opus"
+
+for name in *.flac ; do
+	opusenc --bitrate 128 "$name" "${name%.*}.opus"
+	mv *.opus "${PWD##*/}_opus"
+done

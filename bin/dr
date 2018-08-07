@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# White bg with rio green fg
+#dmenu_run -b -nb '#e9ffe9' -nf '#000000' -sf '#e9ffe9' -sb '#448844' -fn 'Terminus:pixelsize=14'
+
+# Black bg with white fg
+#dmenu_run -b -nb '#000000' -nf '#ffffea' -sf '#000000' -sb '#ffffea' -fn 'Terminus:pixelsize=14'
+
+# White bg with black fg
+dmenu_run -b -nb '#ffffea' -nf '#000000' -sf '#ffffea' -sb '#000000' -fn 'Terminus:pixelsize=14'

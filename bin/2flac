@@ -1,0 +1,8 @@
+#!/bin/sh
+
+mkdir -p "${PWD##*/}_flac"
+
+for name in *.wav ; do
+	sox "$1" "$2".flac
+	mv *.flac "${PWD##*/}_flac"
+done

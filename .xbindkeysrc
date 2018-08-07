@@ -1,4 +1,4 @@
-"dmenu_run -b -nb '#ffffea' -nf '#000000' -sf '#ffffea' -sb '#99994c' -fn 'Terminus:pixelsize=14'"
+"dr"
 	m:0x8 + c:40
 	Alt + d
 
@@ -9,3 +9,12 @@
 "light -A 10"
 	m:0x0 + c:96
 	F12
+
+"pactl set-sink-volume 0 -5%"
+    #m:0x0 + c:122
+    XF86AudioLowerVolume
+
+"pactl set-sink-volume 0 +5%"
+    #m:0x0 + c:123
+    XF86AudioRaiseVolume
+
