@@ -1,0 +1,5 @@
+# Config for tcsh
+
+# heirloom tools
+#setenv PATH $PATH\:/usr/ucb\:/usr/5bin/posix\:/usr/5bin/s42\:/usr/5bin\:usr/local/bin
+set path = ($path /usr/ucb /usr/5bin/posix /usr/5bin/s42  /bin /sbin /usr/bin /usr/local/bin)
