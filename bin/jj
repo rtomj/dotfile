@@ -1,0 +1,12 @@
+#!/bin/sh
+
+prog=$(file --extension "$1" | awk -F'[.:]' '{print $2}')
+
+if [ "$prog" == "jar" ]
+then
+	java -jar "$1"
+else
+	echo "Not a jar file"
+	exit 1
+fi
+
