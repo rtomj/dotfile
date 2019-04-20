@@ -1,0 +1,110 @@
+#########################
+#	.twmrc		#
+#########################
+
+NoGrabServer
+DecorateTransients
+TitleFont "-misc-fixed-*-*-*-*-*-120-*-*-*-*-*-*"
+ResizeFont "-misc-fixed-bold-*-*-*-*-120-*-*-*-*-*-*"
+MenuFont "-misc-fixed-*-*-*-*-*-120-*-*-*-*-*-*"
+IconFont "-misc-fixed-*-*-*-*-*-100-*-*-*-*-*-*"
+IconManagerFont "-misc-fixed-*-*-*-*-*-100-*-*-*-*-*-*"
+#BorderWidth 3
+ButtonIndent 2
+#MenuBorderWidth 1
+AutoRelativeResize
+ShowIconManager
+#NoRaiseOnMove
+#OpaqueMove
+#NoTitle
+#NoMenuShadows
+NoHighlight	# Don't stipple borders
+RandomPlacement	#Don't give ouline-drag for no-geometry windows
+
+Color
+{
+BorderColor         "#AEB2C5"
+DefaultBackground   "#AEB2C5"
+DefaultForeground   "Black"
+
+TitleBackground     "#B44D7A"
+TitleForeground     "White"
+
+MenuTitleBackground "#B44D7A"
+MenuTitleForeground "White"
+
+MenuBackground      "#AEB2C5"
+MenuForeground      "#322E2D"
+
+MenuShadowColor     "#322E2D"
+MenuBorderColor     "White"
+}
+
+}
+#
+# Define some useful functions for motion-based actions.
+#
+MoveDelta 1
+Function "move-or-lower" { f.move f.deltastop f.lower }
+Function "move-or-raise" { f.move f.deltastop f.raise }
+Function "move-or-iconify" { f.move f.deltastop f.iconify }
+
+Button2 = : root : f.menu "twm"
+Button3 = : root : f.menu "main"
+
+Button1 = : frame : f.resize
+Button2 = : frame : f.resize
+Button3 = : frame : f.move
+
+Button1 = : icon : f.iconify
+Button2 = : icon : f.iconify
+Button3 = : icon : f.move
+
+Button1 = : iconmgr : f.iconify
+Button2 = : iconmgr : f.iconify
+
+"i" = m|s : all : f.showiconmgr
+"h" = m|s : all : f.hideiconmgr
+
+# ctrl + Left click to focus frame
+Button1 = c : window : f.raise
+# crtl + shift + left clock to move after focus
+Button1 = c|s : window : f.move
+
+NoTitle {
+	"TWM Icon Manager"
+}
+
+#IconRegion "800x600+10+50" north west 50 25
+
+IconifyByUnMapping
+
+IconManagerDontShow {
+            "xclock"
+            "xload"
+}
+
+#
+# And a menus with the usual things
+#
+menu "main"
+{
+            "New"                   f.exec "st &"
+            "Resize"                f.resize
+            "Move"                  f.move
+            "Delete"                f.delete
+            "Hide"                  f.iconify
+}
+
+menu "twm"
+{
+	    "twm"		    f.title
+            "Browser"               f.exec "firefox &"
+	    "Files"		    f.exec "st -e ranger &"
+	    "-------"	            f.nop
+            "Show Mgr"              f.showiconmgr
+            "Hide Mgr"              f.hideiconmgr
+            "-------"               f.nop
+            "Restart"               f.restart
+            "Quit"                  f.quit
+}
