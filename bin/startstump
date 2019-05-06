@@ -1,5 +1,0 @@
-;;;; stumpwm must also be installed with sbcl:
-;;;; (ql:quickload :stumpwm)
-
-(require :stumpwm)
-(stumpwm:stumpwm)

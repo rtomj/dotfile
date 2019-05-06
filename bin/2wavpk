@@ -1,8 +1,0 @@
-#!/bin/sh
-
-mkdir -p "${PWD##*/}_wv"
-
-for name in *.flac ; do
-	sox "$name"  "${name%.*}".wv
-	mv *.wv "${PWD##*/}_wv"
-done

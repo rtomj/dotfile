@@ -1,4 +1,0 @@
-#!/sbin/sh
-
-# heirloom troff (Solaris)
-troff -ms $1 | dpost > $2.ps

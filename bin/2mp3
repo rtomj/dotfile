@@ -1,8 +1,0 @@
-#!/bin/bash
-
-mkdir -p "${PWD##*/}_mp3"
-
-for name in *.flac ; do
-	sox "$name" -C 320 "${name%.*}.mp3"
-	mv *.mp3 "${PWD##*/}_mp3"
-done

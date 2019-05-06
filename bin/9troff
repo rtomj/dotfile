@@ -1,3 +1,0 @@
-#!/bin/sh
-
-9 troff -ms "$1" | 9 tr2post | ps2pdf - > "${1%.*}.ps"
