@@ -12,15 +12,30 @@ export TERMINAL="st"
 export READER="zathura"
 export BROWSER="firefox"
 
-#xrdb -merge $HOME/.Xresources
+#xrdb ~/.Xresources &
+xsetroot -solid gray
 
-xsetroot -solid dimgray
+# ttf fonts
+#xset fp+ /usr/local/lib/X11/fonts/*
+for m in `ls /usr/local/lib/X11/fonts/`; do
+        if [ -d "/usr/local/lib/X11/fonts/$m" ]; then
+                xset fp+ "/usr/local/lib/X11/fonts/$m"
+        fi
+done
+
+# calibrate display
+#/usr/local/bin/xcalib profile.icm
+
+# thinkpad trackpoint speed
+xinput set-prop /dev/wsmouse "Device Accel Constant Deceleration" 0.4
+
+xsetroot -name " OpenBSD 6.5 "
 
 # disable beep
 xset b off
 
 # Run notification daemon
-#dunst &
+# dunst &
 
-#exec cwm
 exec dwm
+
